@@ -7,6 +7,7 @@ import 'app/bindings/initial_binding.dart';
 import 'app/supabase/supabase_config.dart';
 
 Future<void> main() async {
+  // test web hosting
   WidgetsFlutterBinding.ensureInitialized();
 
   await dotenv.load();
