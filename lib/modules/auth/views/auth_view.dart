@@ -18,9 +18,12 @@ class AuthView extends GetView<AuthController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      extendBodyBehindAppBar: true,
+      backgroundColor: context.palette.coloredBackground,
       body: Container(
         decoration: BoxDecoration(color: context.palette.coloredBackground),
         child: SafeArea(
+          top: false,
           child: Column(
             children: [
               Row(
