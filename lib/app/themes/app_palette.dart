@@ -5,6 +5,7 @@ import 'app_colors.dart';
 @immutable
 class AppPalette extends ThemeExtension<AppPalette> {
   const AppPalette({
+    required this.primary,
     required this.background,
     required this.cardBackground,
     required this.coloredBackground,
@@ -22,6 +23,7 @@ class AppPalette extends ThemeExtension<AppPalette> {
   });
 
   final Color background;
+  final Color primary;
   final Color cardBackground;
   final Color coloredBackground;
   final Color surface;
@@ -37,6 +39,7 @@ class AppPalette extends ThemeExtension<AppPalette> {
   final Color headerOverlay;
 
   static const light = AppPalette(
+    primary: AppColors.primary,
     background: Color(0xFFF5F3FF),
     coloredBackground: AppColors.primary,
     cardBackground: AppColors.primary,
@@ -55,6 +58,7 @@ class AppPalette extends ThemeExtension<AppPalette> {
   );
 
   static const dark = AppPalette(
+    primary: AppColors.primary,
     // background: Color(0xFF0F0D18),
     background: Color(0xFF1A1628),
     // coloredBackground: Color(0xFF0F0D18),
@@ -75,6 +79,7 @@ class AppPalette extends ThemeExtension<AppPalette> {
 
   @override
   AppPalette copyWith({
+    Color? primary,
     Color? coloredBackground,
     Color? background,
     Color? cardBackground,
@@ -91,6 +96,7 @@ class AppPalette extends ThemeExtension<AppPalette> {
     Color? headerOverlay,
   }) {
     return AppPalette(
+      primary: primary ?? this.primary,
       background: background ?? this.background,
       coloredBackground: coloredBackground ?? this.coloredBackground,
       cardBackground: cardBackground ?? this.cardBackground,
@@ -112,6 +118,7 @@ class AppPalette extends ThemeExtension<AppPalette> {
   AppPalette lerp(ThemeExtension<AppPalette>? other, double t) {
     if (other is! AppPalette) return this;
     return AppPalette(
+      primary: Color.lerp(primary, other.primary, t)!,
       coloredBackground: Color.lerp(
         coloredBackground,
         other.coloredBackground,
